@@ -19,6 +19,7 @@ public class User {
     private String password;
     private String userImage;
     private boolean isAdmin;
+    private String address;
 
     public int getId(){
         return id;
@@ -59,6 +60,10 @@ public class User {
     public String getUserImage(){return  userImage;}
     public void  setUserImage(String userImage){this.userImage=userImage;}
 
+    public  String getAddress(){return  address;}
+    public  void  setAddress(String address){this.address = address;}
+
+
     @Override
     public String toString() {
         return "User{" +
@@ -70,7 +75,8 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", userImage='" + userImage + '\'' +
-                ", isAdmin='" + isAdmin + '\'' +
+                ", isAdmin=" + isAdmin +
+                ", address='" + address + '\'' +
                 '}';
     }
 }

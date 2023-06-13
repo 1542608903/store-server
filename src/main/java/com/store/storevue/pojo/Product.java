@@ -36,10 +36,10 @@ public class Product {
     public void  setCreateTime(String createTime){this.createTime=createTime;}
 
     public String getCoverImage(){return coverImage;}
-    public void setCoverImage(){this.coverImage=coverImage;}
+    public void setCoverImage(String coverImage){this.coverImage=coverImage;}
 
     public String getMoreImage(){return moreImage;}
-    public void setMoreImage(){this.moreImage=moreImage;}
+    public void setMoreImage(String moreImage){this.moreImage=moreImage;}
 
     public Integer getClassifyId(){return classifyId;}
     public void setClassifyId(Integer classifyId){this.classifyId=classifyId;}
@@ -57,8 +57,5 @@ public class Product {
                 ", classifyId=" + classifyId +
                 ", moreImage='" + moreImage + '\'' +
                 '}';
-    }
-
-    public void setCoverImage(String filePath) {
     }
 }
