@@ -2,10 +2,12 @@ package com.store.storevue.controller;
 
 import com.store.storevue.pojo.User;
 import com.store.storevue.service.UserService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+
+@Api(tags = " 用户列表测试接口")
 @RestController
 @RequestMapping("/api")
 public class UserListController {

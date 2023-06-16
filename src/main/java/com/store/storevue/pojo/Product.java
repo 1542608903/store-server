@@ -1,8 +1,13 @@
 package com.store.storevue.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.xml.crypto.Data;
+import java.util.Date;
 
 @TableName("goods")
 public class Product {
@@ -12,10 +17,15 @@ public class Product {
     private String  detail;
     private Integer stock;
     private Double  price;
-    private String  createTime;
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private String createTime;
+    private String  updateTime;
     private String  coverImage;
     private Integer classifyId;
     private String  moreImage;
+
+    @TableField(exist = false)
+    private Integer quantity;
 
     public Integer getId(){return gid;}
     public void setId(Integer gid){this.gid=gid;}
@@ -35,6 +45,8 @@ public class Product {
     public String getCreateTime(){return createTime;}
     public void  setCreateTime(String createTime){this.createTime=createTime;}
 
+    public String getUpdateTime(){return updateTime;}
+    public void  setUpdateTime(String updateTime){this.updateTime=updateTime;}
     public String getCoverImage(){return coverImage;}
     public void setCoverImage(String coverImage){this.coverImage=coverImage;}
 
@@ -43,6 +55,15 @@ public class Product {
 
     public Integer getClassifyId(){return classifyId;}
     public void setClassifyId(Integer classifyId){this.classifyId=classifyId;}
+
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 
     @Override
     public String toString() {
@@ -53,9 +74,11 @@ public class Product {
                 ", stock=" + stock +
                 ", price=" + price +
                 ", createTime='" + createTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
                 ", coverImage='" + coverImage + '\'' +
                 ", classifyId=" + classifyId +
                 ", moreImage='" + moreImage + '\'' +
+                ", quantity=" + quantity +
                 '}';
     }
 }

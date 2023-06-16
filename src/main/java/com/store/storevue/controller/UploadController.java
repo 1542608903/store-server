@@ -1,5 +1,6 @@
 package com.store.storevue.controller;
 
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+
+@Api(tags = " 图片上传测试接口")
 @RestController
 @RequestMapping("/api")
 public class UploadController {

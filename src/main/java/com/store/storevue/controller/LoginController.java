@@ -4,6 +4,7 @@ import com.store.storevue.Utils.JwtUtil;
 import com.store.storevue.pojo.LoginResponse;
 import com.store.storevue.pojo.User;
 import com.store.storevue.service.UserService;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+@Api(tags = " 登录测试接口")
 @RestController
 @RequestMapping("/api")
 public class LoginController {

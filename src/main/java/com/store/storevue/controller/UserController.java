@@ -4,6 +4,7 @@ import com.store.storevue.Utils.JwtUtil;
 import com.store.storevue.pojo.User;
 
 import com.store.storevue.service.UserService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,23 +12,23 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
+@Api(tags = " 用户测试接口")
 @RestController
 @RequestMapping("/api")
 public class UserController {
     @Autowired
-    private  JwtUtil jwtUtil;
     private final UserService userService;
+    private  JwtUtil jwtUtil;
+
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping("/userinfo")
+    @GetMapping("/user/info")
     public ResponseEntity<User> getUserInfo(HttpServletRequest request) {
         // 从请求头中获取token
-
         String token = request.getHeader("Authorization").replace("Bearer ", "");
-//        System.out.println("mytoken:"+token);
 
         // 解析token，获取用户名
         String username = JwtUtil.getUsernameFromToken(token);

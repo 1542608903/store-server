@@ -3,6 +3,7 @@ package com.store.storevue.controller;
 import com.store.storevue.mapper.ClassifyMapper;
 import com.store.storevue.pojo.Classify;
 import com.store.storevue.service.ClassifyService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Api(tags = " 分类测试接口")
 @RestController
 @RequestMapping("/api")
 public class ClassifyController {
