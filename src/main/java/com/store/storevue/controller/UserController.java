@@ -11,12 +11,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Api(tags = " 用户测试接口")
 @RestController
 @RequestMapping("/api")
 public class UserController {
-    @Autowired
+
     private final UserService userService;
     private  JwtUtil jwtUtil;
 
@@ -43,15 +44,30 @@ public class UserController {
         return ResponseEntity.notFound().build();
 
     }
-@PutMapping("update/{id}")
-public ResponseEntity<User> updateUser(@PathVariable("id") int id, @RequestBody User user) {
-    user.setId(id); // 设置要更新的用户ID
-    User updatedUser = userService.updateUser(user); // 调用UserService的updateUser方法进行用户信息更新
-    if (updatedUser != null) {
-        return ResponseEntity.ok(updatedUser); // 更新成功，返回修改后的用户信息
-    } else {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build(); // 更新失败，返回错误状态
+    @PutMapping("update/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable("id") int id, @RequestBody User user) {
+        user.setId(id); // 设置要更新的用户ID
+        User updatedUser = userService.updateUser(user); // 调用UserService的updateUser方法进行用户信息更新
+        if (updatedUser != null) {
+            return ResponseEntity.ok(updatedUser); // 更新成功，返回修改后的用户信息
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build(); // 更新失败，返回错误状态
+        }
     }
-}
+    @GetMapping("/users")
+    public List<User> getUsers() {
+        // 使用 MyBatis-Plus 查询数据库获取用户列表
+        List<User> userList = userService.getAllUsers();
+        return userList;
+    }
+    @DeleteMapping("/users/{id}")
+    public String deleteUser(@PathVariable Integer id) {
+        boolean result = userService.deleteUserById(id);
+        if (result) {
+            return "用户删除成功";
+        } else {
+            return "用户删除失败.";
+        }
+    }
 }
 

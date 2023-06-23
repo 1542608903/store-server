@@ -28,7 +28,6 @@ public class ProductController {
         this.productService=productService;
         this.orderProductMapper = orderProductMapper;
     }
-
     @GetMapping("/products/{id}")
     public Product getProductById(@PathVariable int id) {
         return productService.getProductById(id);
@@ -46,7 +45,6 @@ public class ProductController {
         List<Product> productList = productService.getAllProduct();
         return productList;
     }
-
 //    新品列表
 @GetMapping("/newProduct/list")
     public List<Product> getLatestProducts(){
